@@ -101,32 +101,8 @@ export default function Layout() {
         <CssBaseline />
         <Header />
         {/* Hero unit */}
-        <Container
-          maxWidth="sm"
-          component="main"
-          className={classes.heroContent}
-        >
-          <Typography
-            variant="h3"
-            align="center"
-            color="textSecondary"
-            component="p"
-          >
-            Top rated
-          </Typography>
-        </Container>
         {/* End hero unit */}
         <Container maxWidth="md" component="main">
-          <Carousel
-            autoPlay={false}
-            indicators={false}
-            navButtonsAlwaysVisible={true}
-          >
-            {items.map((item, i) => (
-              <Item key={i} item={item} />
-            ))}
-          </Carousel>
-
           <Container
             maxWidth="sm"
             component="main"
@@ -157,7 +133,7 @@ export default function Layout() {
                 color="textPrimary"
                 component="p"
               >
-                The Mandalorian (2020)
+                Mandalorian (2020)
               </Typography>
             </Grid>
 
@@ -174,25 +150,7 @@ export default function Layout() {
                 color="textPrimary"
                 component="p"
               >
-                The Mandalorian (2020)
-              </Typography>
-            </Grid>
-
-            <Grid item xs={3}>
-              <Paper style={{ overflow: "hidden" }}>
-                <img
-                  src="mando2.jpg"
-                  style={{ width: "100%", height: "100%", display: "block" }}
-                />
-              </Paper>
-
-              <Typography
-                style={{ paddingTop: "2%" }}
-                align="center"
-                color="textPrimary"
-                component="p"
-              >
-                The Mandalorian (2020)
+                Mandalorian (2020)
               </Typography>
             </Grid>
 
@@ -210,7 +168,25 @@ export default function Layout() {
                 color="textPrimary"
                 component="p"
               >
-                The Mandalorian (2020)
+                Mandalorian (2020)
+              </Typography>
+            </Grid>
+
+            <Grid item xs={3}>
+              <Paper style={{ overflow: "hidden" }}>
+                <img
+                  src="mando2.jpg"
+                  style={{ width: "100%", height: "100%", display: "block" }}
+                />
+              </Paper>
+
+              <Typography
+                style={{ paddingTop: "2%" }}
+                align="center"
+                color="textPrimary"
+                component="p"
+              >
+                Mandalorian (2020)
               </Typography>
             </Grid>
           </Grid>
