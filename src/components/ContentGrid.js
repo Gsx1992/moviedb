@@ -5,7 +5,7 @@ import Container from "@material-ui/core/Container";
 import { Paper } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import movie from "../api/movie";
-import { BASE_IMAGE_URL_PREVIEW } from '../constants/Constants';
+import { BASE_IMAGE_URL_PREVIEW } from "../constants/Constants";
 
 const useStyles = (theme) => ({
   heroContent: {
@@ -29,12 +29,11 @@ class ContentGrid extends Component {
   }
 
   render() {
-    let top = "Top movies this week"
-    if(this.props.type === 'tv') {
-      top = "Top TV shows this week"
+    let top = "Top movies this week";
+    if (this.props.type === "tv") {
+      top = "Top TV shows this week";
     }
     const { classes } = this.props;
-    console.log(this.props.type);
     return (
       <>
         <Container
@@ -54,13 +53,15 @@ class ContentGrid extends Component {
 
         <Grid container spacing={1}>
           {this.state.response.map((data, index) => (
-            <Grid item xs={3}>
+            <Grid item xs={3} key={data.id}>
+              <a href="your landing page url">
               <Paper style={{ overflow: "hidden" }}>
                 <img
-                  src={BASE_IMAGE_URL_PREVIEW+data.poster_path}
+                  src={BASE_IMAGE_URL_PREVIEW + data.poster_path}
                   style={{ width: "100%", height: "100%", display: "block" }}
                 />
               </Paper>
+              </a>
 
               <Typography
                 style={{ paddingTop: "2%" }}
@@ -68,7 +69,7 @@ class ContentGrid extends Component {
                 color="textPrimary"
                 component="p"
               >
-                {this.props.type === "movie" ? (data.original_title) : (data.name)}
+                {this.props.type === "movie" ? data.original_title : data.name}
               </Typography>
             </Grid>
           ))}

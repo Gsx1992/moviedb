@@ -1,14 +1,13 @@
 import React from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
 import { makeStyles, createMuiTheme } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { ThemeProvider } from "@material-ui/styles";
 import Header from "./Header";
 import Footer from "./Footer";
-import { Paper } from "@material-ui/core";
-import ContentGrid from './ContentGrid'
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import Home from './Home'
+import ListContent from './ListContent';
 
 const theme = createMuiTheme({
   palette: {
@@ -28,56 +27,22 @@ const theme = createMuiTheme({
   },
 });
 
-const items = [
-  {
-    name: "Movie title 1",
-    description: "Probably the most random thing you have ever seen!",
-    releaseDate: "25/06/2001",
-  },
-  {
-    name: "Movie title 2",
-    description: "Hello mate",
-    releaseDate: "25/06/2001",
-  },
-];
-
-const useStyles = makeStyles((theme) => ({
-  "@global": {
-    ul: {
-      margin: 0,
-      padding: 0,
-      listStyle: "none",
-    },
-  },
-  link: {
-    margin: theme.spacing(1, 1.5),
-  },
-  heroContent: {
-    padding: theme.spacing(8, 0, 6),
-  },
-}));
-
-
 export default function Layout() {
-  const classes = useStyles();
-
   return (
     <>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Header />
-        {/* Hero unit */}
-        {/* End hero unit */}
-        <Container maxWidth="md" component="main">
-
-          <ContentGrid type = {"movie"}/>
-          <ContentGrid type = {"tv"}/>
-
-         
-        </Container>
-        {/* Footer */}
-        <Footer />
-        {/* End footer */}
+        <Router>
+          <Header />
+          <Container maxWidth="md" component="main">
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/movie" component={ListContent} />
+            <Route path="/tv" component={ListContent} />
+          </Switch>
+          <Footer />
+          </Container>
+        </Router>
       </ThemeProvider>
     </>
   );

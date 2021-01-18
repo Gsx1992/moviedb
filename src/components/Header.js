@@ -2,9 +2,11 @@ import React from "react";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import AppBar from "@material-ui/core/AppBar";
-import Link from "@material-ui/core/Link";
-import Button from "@material-ui/core/Button";
+import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
+import ListContent from './ListContent'
+import { withRouter } from "react-router";
+
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -18,6 +20,8 @@ const useStyles = makeStyles((theme) => ({
   },
   link: {
     margin: theme.spacing(1, 1.5),
+    textDecoration: 'none',
+    color: 'white'
   },
 }));
 
@@ -25,7 +29,7 @@ const Header = () => {
   const classes = useStyles();
 
   return (
-    <AppBar position="static" elevation={0} className={classes.appBar}>
+    <AppBar position="static"  className={classes.appBar}>
       <Toolbar className={classes.toolbar}>
         <Typography
           variant="h6"
@@ -33,45 +37,34 @@ const Header = () => {
           noWrap
           className={classes.toolbarTitle}
         >
-          MovieDB
+          <Link
+            color="textPrimary"
+            to="/"
+            className={classes.link}
+          >
+            MovieDB
+          </Link>
         </Typography>
         <nav>
           <Link
-            variant="button"
             color="textPrimary"
-            href="#"
+            to="/movie"
             className={classes.link}
           >
-            Yes
+            Movies
           </Link>
           <Link
             variant="button"
+            to="/tv"
             color="textPrimary"
-            href="#"
             className={classes.link}
           >
-            Hello
-          </Link>
-          <Link
-            variant="button"
-            color="textPrimary"
-            href="#"
-            className={classes.link}
-          >
-            Mate
+            TV Shows
           </Link>
         </nav>
-        <Button
-          href="#"
-          color="primary"
-          variant="outlined"
-          className={classes.link}
-        >
-          Login
-        </Button>
       </Toolbar>
     </AppBar>
   );
 };
 
-export default Header;
+export default withRouter(Header);
