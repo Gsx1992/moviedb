@@ -29,6 +29,7 @@ const theme = createMuiTheme({
     },
     text: {
       primary: "#FFFFFF",
+      secondary: "#f5c518",
     },
   },
 });
@@ -37,12 +38,12 @@ const items = [
   {
     name: "Movie title 1",
     description: "Probably the most random thing you have ever seen!",
-    releaseDate: "25/06/2001"
+    releaseDate: "25/06/2001",
   },
   {
     name: "Movie title 2",
     description: "Hello mate",
-    releaseDate: "25/06/2001"
+    releaseDate: "25/06/2001",
   },
 ];
 
@@ -72,16 +73,19 @@ function Item(props) {
   return (
     <Paper>
       <Grid container spacing={5}>
-        <Grid item xs={4} style = {{paddingBottom: '0px'}}>
-          <Paper circle={true} style={{overflow:'hidden'}}>
-          <img src='placeholder.jpg' style={{width:'100%', height:'100%'}}/>
+        <Grid item xs={4} style={{ padding: "0px" }}>
+          <Paper circle={true}>
+            <img
+              src="placeholder.jpg"
+              style={{ width: "100%", height: "100%", display: "block" }}
+            />
           </Paper>
         </Grid>
 
-        <Grid item xs={6}>
+        <Grid item xs={5}>
           <h2>{props.item.name}</h2>
           <p>{props.item.description}</p>
-          <p>Release date: {props.item.releaseDate}</p>
+          <p>Release date: {props.item.description}</p>
         </Grid>
       </Grid>
     </Paper>
@@ -103,7 +107,7 @@ export default function Layout() {
           className={classes.heroContent}
         >
           <Typography
-            variant="h5"
+            variant="h3"
             align="center"
             color="textSecondary"
             component="p"
@@ -113,11 +117,168 @@ export default function Layout() {
         </Container>
         {/* End hero unit */}
         <Container maxWidth="md" component="main">
-          <Carousel autoPlay = {false} indicators={false} navButtonsAlwaysVisible = {true}>
+          <Carousel
+            autoPlay={false}
+            indicators={false}
+            navButtonsAlwaysVisible={true}
+          >
             {items.map((item, i) => (
               <Item key={i} item={item} />
             ))}
           </Carousel>
+
+          <Container
+            maxWidth="sm"
+            component="main"
+            className={classes.heroContent}
+          >
+            <Typography
+              variant="h4"
+              align="center"
+              color="textSecondary"
+              component="p"
+            >
+              Top TV Shows
+            </Typography>
+          </Container>
+
+          <Grid container spacing={1}>
+            <Grid item xs={3}>
+              <Paper style={{ overflow: "hidden" }}>
+                <img
+                  src="mando2.jpg"
+                  style={{ width: "100%", height: "100%", display: "block" }}
+                />
+              </Paper>
+
+              <Typography
+                style={{ paddingTop: "2%" }}
+                align="center"
+                color="textPrimary"
+                component="p"
+              >
+                The Mandalorian (2020)
+              </Typography>
+            </Grid>
+
+            <Grid item xs={3}>
+              <Paper style={{ overflow: "hidden" }}>
+                <img
+                  src="mando2.jpg"
+                  style={{ width: "100%", height: "100%", display: "block" }}
+                />
+              </Paper>
+              <Typography
+                style={{ paddingTop: "2%" }}
+                align="center"
+                color="textPrimary"
+                component="p"
+              >
+                The Mandalorian (2020)
+              </Typography>
+            </Grid>
+
+            <Grid item xs={3}>
+              <Paper style={{ overflow: "hidden" }}>
+                <img
+                  src="mando2.jpg"
+                  style={{ width: "100%", height: "100%", display: "block" }}
+                />
+              </Paper>
+
+              <Typography
+                style={{ paddingTop: "2%" }}
+                align="center"
+                color="textPrimary"
+                component="p"
+              >
+                The Mandalorian (2020)
+              </Typography>
+            </Grid>
+
+            <Grid item xs={3}>
+              <Paper style={{ overflow: "hidden" }}>
+                <img
+                  src="mando2.jpg"
+                  style={{ width: "100%", height: "100%", display: "block" }}
+                />
+              </Paper>
+
+              <Typography
+                style={{ paddingTop: "2%" }}
+                align="center"
+                color="textPrimary"
+                component="p"
+              >
+                The Mandalorian (2020)
+              </Typography>
+            </Grid>
+          </Grid>
+
+          <Container
+            maxWidth="sm"
+            component="main"
+            className={classes.heroContent}
+          >
+            <Typography
+              variant="h4"
+              align="center"
+              color="textSecondary"
+              component="p"
+            >
+              Some no name actors
+            </Typography>
+          </Container>
+
+          <Grid container spacing={1}>
+            <Grid item xs={3}>
+            <Paper style={{ overflow: "hidden" }}>
+                <img
+                  src="rob.jpg"
+                  style={{ width: "100%", height: "100%", display: "block" }}
+                />
+              </Paper>
+              <Typography align="center" color="textPrimary" component="p" style={{ paddingTop: "2%" }}>
+                Robert Downey Jr.
+              </Typography>
+            </Grid>
+
+            <Grid item xs={3}>
+            <Paper style={{ overflow: "hidden" }}>
+                <img
+                  src="rob.jpg"
+                  style={{ width: "100%", height: "100%", display: "block" }}
+                />
+              </Paper>
+              <Typography align="center" color="textPrimary" component="p" style={{ paddingTop: "2%" }}>
+                Robert Downey Jr.
+              </Typography>
+            </Grid>
+
+            <Grid item xs={3}>
+            <Paper style={{ overflow: "hidden" }}>
+                <img
+                  src="rob.jpg"
+                  style={{ width: "100%", height: "100%", display: "block" }}
+                />
+              </Paper>
+              <Typography align="center" color="textPrimary" component="p" style={{ paddingTop: "2%" }}>
+                Robert Downey Jr.
+              </Typography>
+            </Grid>
+
+            <Grid item xs={3}>
+            <Paper style={{ overflow: "hidden" }}>
+                <img
+                  src="rob.jpg"
+                  style={{ width: "100%", height: "100%", display: "block" }}
+                />
+              </Paper>
+              <Typography align="center" color="textPrimary" component="p" style={{ paddingTop: "2%" }}>
+                Robert Downey Jr.
+              </Typography>
+            </Grid>
+          </Grid>
         </Container>
         {/* Footer */}
         <Footer />
