@@ -1,0 +1,1 @@
+export const PROXY_URL = "https://n7dma8nf1a.execute-api.eu-west-1.amazonaws.com/prod/3";
